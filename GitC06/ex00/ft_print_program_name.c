@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhavard <lhavard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 17:43:12 by lhavard           #+#    #+#             */
-/*   Updated: 2025/07/24 10:48:01 by lhavard          ###   ########.fr       */
+/*   Created: 2025/07/24 11:50:11 by lhavard           #+#    #+#             */
+/*   Updated: 2025/07/24 12:05:53 by lhavard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-int	ft_recursive_factorial(int nb)
+int	main(int argc, char** argv)
 {
-	int	n;
+	char c;
+	int i;
 
-	n = nb - 1;
-	if (!(nb >= 0))
-		return (0);
-	if (nb == 0)
-		return (1);
-	if (nb > 0 && n >= 1)
+	i = 0;
+	if(argc >= 0)
 	{
-		nb *= n;
-		ft_recursive_factorial(n);
+		while (argv[0][i] != '\0')
+		{
+			c = argv[0][i];
+			write (1, &c, 1);
+			i++;
+		}
+		write (1, "\n", 1);
 	}
-	return(nb);
-}
-
-int	main(void)
-{
-	printf("%d", ft_recursive_factorial(5));
-	return (0);
+	return(0);
 }

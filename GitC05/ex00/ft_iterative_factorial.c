@@ -6,7 +6,7 @@
 /*   By: lhavard <lhavard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:05:51 by lhavard           #+#    #+#             */
-/*   Updated: 2025/07/23 17:42:23 by lhavard          ###   ########.fr       */
+/*   Updated: 2025/07/24 11:25:49 by lhavard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ int	ft_iterative_factorial(int nb)
 
 // int	main(void)
 // {
-// 	printf("%d", ft_iterative_factorial(-1));
+// 	printf("%d/n", ft_iterative_factorial(3));
+// 	printf("%d/n", ft_iterative_factorial(5));
+// 	printf("%d/n", ft_iterative_factorial(1));
+// 	printf("%d/n", ft_iterative_factorial(0));
+// 	printf("%d/n", ft_iterative_factorial(-1));
 // 	return (0);
 // }
