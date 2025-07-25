@@ -6,7 +6,7 @@
 /*   By: lhavard <lhavard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 19:56:31 by lhavard           #+#    #+#             */
-/*   Updated: 2025/07/23 12:51:47 by lhavard          ###   ########.fr       */
+/*   Updated: 2025/07/24 14:18:47 by lhavard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,37 +34,62 @@ int	ft_strlenbf(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0' && (str[i] == ' ' || str[i] == '-' || str[i] == '+'))
+	while (str[i] != '\0'
+		&& ((str[i] >= 9 && str[i] <= 13)
+			||str[i] == ' ' || str[i] == '-' || str[i] == '+'))
 	{
 		i++;
 	}
 	return (i);
 }
 
+int	checkspaces(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0'
+		&& ((str[i] >= 9 && str[i] <= 13) || str[i] == ' '))
+		i++;
+	while (str[i] != '\0' && (!(str[i] >= '0' && str[i] <= '9')))
+	{
+		if ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	ft_atoi(char *str)
 {
-	int		x;
-	int		i;
-	char	c;
+	int	x;
+	int	i;
+	int	a;
 
+	a = 0;
+	if (checkspaces(str) == 0)
+	{
+		return (0);
+	}
+	i = ft_strlenbf(str);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		a += (str[i] - 48);
+		a *= 10;
+		i++;
+	}
+	a /= 10;
 	x = count_minus(str);
 	if (x % 2 == 1)
 	{
-		write(1, "-", 1);
+		a *= -1;
 	}
-	i = ft_strlenbf(str);
-	while (str[i] > '0' && str[i] < '9')
-	{
-		c = str[i];
-		write(1, &c, 1);
-		i++;
-	}
-	return (0);
+	return (a);
 }
 
 // int	main(int argc, char* argv[])
 // {
 // 	if (argc != 0)
-// 		ft_atoi(argv[1]);
+// 		printf("%d", ft_atoi(argv[1]));
 // 	return(0);
 // }
